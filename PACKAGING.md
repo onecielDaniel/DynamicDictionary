@@ -55,6 +55,88 @@ export NUGET_API_KEY="your-api-key-here"
 ./build-and-publish.sh
 ```
 
+## Automated CI/CD with GitHub Actions
+
+This repository includes a GitHub Actions workflow that automatically builds and publishes NuGet packages whenever code is merged into the `master` branch.
+
+### How It Works
+
+The workflow (`.github/workflows/nuget-publish.yml`) automatically:
+1. ✅ Builds the solution in Release configuration
+2. ✅ Creates NuGet packages for both projects
+3. ✅ Publishes packages to NuGet.org
+4. ✅ Saves packages as GitHub Actions artifacts
+
+### Setup Instructions
+
+#### 1. Create NuGet.org API Key
+
+1. Go to https://www.nuget.org/account/apikeys
+2. Click **"Create"**
+3. Enter a name for your API key (e.g., "GitHub Actions")
+4. Under **"Select Scopes"**, choose **"Push"**
+5. Under **"Select Packages"**, choose:
+   - **"Select specific packages"** and select your packages, OR
+   - **"All packages"** (if you want to publish any package from this account)
+6. Click **"Create"**
+7. **Copy the API key** (you won't be able to see it again!)
+
+#### 2. Add API Key to GitHub Secrets
+
+1. Go to your GitHub repository
+2. Click **Settings** → **Secrets and variables** → **Actions**
+3. Click **"New repository secret"**
+4. Name: `NUGET_API_KEY`
+5. Value: Paste your NuGet API key
+6. Click **"Add secret"**
+
+#### 3. Test the Workflow
+
+1. Make a change to your code
+2. Commit and push to `master` branch (or merge a PR)
+3. Go to **Actions** tab in GitHub
+4. Watch the workflow run automatically!
+
+### Workflow Triggers
+
+The workflow runs automatically when:
+- ✅ Code is pushed directly to `master` branch
+- ✅ A Pull Request is merged into `master` branch
+
+The workflow does **NOT** run on:
+- ❌ Pull Requests that are opened but not merged
+- ❌ Pushes to other branches
+
+### Workflow Features
+
+- **Automatic Versioning**: Uses version from `.csproj` files
+- **Skip Duplicates**: Won't fail if package version already exists
+- **Artifact Storage**: Packages are saved as artifacts for 30 days
+- **Error Handling**: Continues even if one package fails to publish
+
+### Monitoring Workflows
+
+1. Go to the **Actions** tab in your GitHub repository
+2. Click on a workflow run to see detailed logs
+3. Check the **Artifacts** section to download generated packages
+
+### Troubleshooting CI/CD
+
+**Workflow not running?**
+- Check that the workflow file is in `.github/workflows/` directory
+- Verify the file is named `nuget-publish.yml`
+- Ensure you're pushing to `master` branch
+
+**Publish failing?**
+- Verify `NUGET_API_KEY` secret is set correctly
+- Check that the API key has "Push" permissions
+- Ensure the API key hasn't expired
+- Check workflow logs for detailed error messages
+
+**Package version already exists?**
+- Update the version in `.csproj` files before merging
+- The workflow uses `--skip-duplicate` flag, so it won't fail, but the package won't be updated
+
 ## Manual Build Process
 
 ### Step 1: Clean Previous Builds

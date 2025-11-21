@@ -1,0 +1,80 @@
+name: Build and Publish NuGet Packages
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+    types: [closed]
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    
+    # Only run on merge to master (not on PR open)
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch all history for version calculation
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+    
+    - name: Restore dependencies
+      run: dotnet restore OneCiel.System.Dynamics.sln
+    
+    - name: Build solution
+      run: dotnet build OneCiel.System.Dynamics.sln --configuration Release --no-restore
+    
+    - name: Create packages directory
+      run: mkdir -p packages
+    
+    - name: Pack OneCiel.System.Dynamics
+      run: |
+        dotnet pack OneCiel.System.Dynamics/OneCiel.System.Dynamics.csproj \
+          --configuration Release \
+          --no-build \
+          --output ./packages
+    
+    - name: Pack OneCiel.System.Dynamics.JsonExtension
+      run: |
+        dotnet pack OneCiel.System.Dynamics.JsonExtension/OneCiel.System.Dynamics.JsonExtension.csproj \
+          --configuration Release \
+          --no-build \
+          --output ./packages
+    
+    - name: List created packages
+      run: ls -lh packages/*.nupkg
+    
+    - name: Publish OneCiel.System.Dynamics to NuGet
+      if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+      run: |
+        dotnet nuget push packages/OneCiel.System.Dynamics.*.nupkg \
+          --api-key ${{ secrets.NUGET_API_KEY }} \
+          --source https://api.nuget.org/v3/index.json \
+          --skip-duplicate
+      continue-on-error: true
+    
+    - name: Publish OneCiel.System.Dynamics.JsonExtension to NuGet
+      if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+      run: |
+        dotnet nuget push packages/OneCiel.System.Dynamics.JsonExtension.*.nupkg \
+          --api-key ${{ secrets.NUGET_API_KEY }} \
+          --source https://api.nuget.org/v3/index.json \
+          --skip-duplicate
+      continue-on-error: true
+    
+    - name: Upload packages as artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: nuget-packages
+        path: packages/*.nupkg
+        retention-days: 30
+
