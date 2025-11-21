@@ -1,0 +1,42 @@
+        }
+
+        #region Legacy JSON Methods (Deprecated)
+
+        /// <summary>
+        /// [Obsolete] Creates a DynamicDictionary from a JSON string using a standardized IJsonDeserializer.
+        /// Use the overload with IDynamicsJsonSerializer instead.
+        /// </summary>
+        [Obsolete("Use the overload with IDynamicsJsonSerializer instead. This method will be removed in a future version.")]
+        public static dynamic Create(string json, IJsonDeserializer deserializer)
+        {
+            if (json == null)
+                throw new ArgumentNullException(nameof(json));
+            if (string.IsNullOrWhiteSpace(json))
+                throw new ArgumentException("JSON string cannot be empty", nameof(json));
+            if (deserializer == null)
+                throw new ArgumentNullException(nameof(deserializer));
+
+            return deserializer.Deserialize(json);
+        }
+
+        /// <summary>
+        /// [Obsolete] Creates an array of DynamicDictionary from a JSON array string using a standardized IJsonDeserializer.
+        /// Use the overload with IDynamicsJsonSerializer instead.
+        /// </summary>
+        [Obsolete("Use the overload with IDynamicsJsonSerializer instead. This method will be removed in a future version.")]
+        public static dynamic CreateArray(string json, IJsonDeserializer deserializer)
+        {
+            if (json == null)
+                throw new ArgumentNullException(nameof(json));
+            if (string.IsNullOrWhiteSpace(json))
+                throw new ArgumentException("JSON string cannot be empty", nameof(json));
+            if (deserializer == null)
+                throw new ArgumentNullException(nameof(deserializer));
+
+            return deserializer.DeserializeArray(json);
+        }
+
+        #endregion
+
+        #endregion
+

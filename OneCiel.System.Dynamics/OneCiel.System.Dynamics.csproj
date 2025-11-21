@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Nullable>enable</Nullable>
+    
+    <!-- NuGet Package Information -->
+    <PackageId>OneCiel.System.Dynamics</PackageId>
+    <Version>0.0.1</Version>
+    <Title>OneCiel.System.Dynamics</Title>
+    <Authors>OneCiel</Authors>
+    <Description>A flexible and dynamic dictionary implementation for .NET that supports dynamic object access, nested property navigation, and case-insensitive key lookup.</Description>
+    <PackageProjectUrl>https://github.com/oneciel/OneCiel.System.Dynamics</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>dynamic;dictionary;dynamic-object;nested-properties</PackageTags>
+    <RepositoryUrl>https://github.com/oneciel/OneCiel.System.Dynamics</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Initial release of OneCiel.System.Dynamics library.</PackageReleaseNotes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
