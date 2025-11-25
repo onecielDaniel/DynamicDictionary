@@ -15,7 +15,9 @@ namespace OneCiel.System.Dynamics
         /// <typeparam name="T">The type of the object to convert.</typeparam>
         /// <param name="request">The object instance to convert.</param>
         /// <returns>
+        /// <![CDATA[
         /// A <see cref="Dictionary{string, object}"/> containing the property names and values of the object.
+        /// ]]>
         /// </returns>
         public static Dictionary<string, object> ToDict<T>(this T request)
         {

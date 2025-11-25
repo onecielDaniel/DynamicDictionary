@@ -8,7 +8,7 @@
     
     <!-- NuGet Package Information -->
     <PackageId>OneCiel.System.Dynamics.JsonExtension</PackageId>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <Title>OneCiel.System.Dynamics.JsonExtension</Title>
     <Authors>OneCiel</Authors>
     <Description>JSON serialization and deserialization extensions for OneCiel.System.Dynamics. Provides seamless System.Text.Json integration with DynamicDictionary.</Description>

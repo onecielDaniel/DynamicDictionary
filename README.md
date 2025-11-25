@@ -600,4 +600,6 @@ For issues, questions, or suggestions:
 
 ---
 
-**Made with ❤️ by OneCiel**
+** Made with ❤️ by OneCiel **
+** Copyright © 2024 OneCiel. All rights reserved. **
+** Contact: daniel.yun@oneciel.com **
