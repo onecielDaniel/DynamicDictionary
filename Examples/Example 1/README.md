@@ -283,5 +283,5 @@ MIT License - See LICENSE in parent directory.
 
 ## See Also
 
-- [OneCiel.System.Dynamics](../README.md) - Main library documentation
-- [OneCiel.System.Dynamics.JsonExtension](../OneCiel.System.Dynamics.JsonExtension/README.md) - JSON extension documentation
+- [OneCiel.Core.Dynamics](../README.md) - Main library documentation
+- [OneCiel.Core.Dynamics.JsonExtension](../OneCiel.Core.Dynamics.JsonExtension/README.md) - JSON extension documentation

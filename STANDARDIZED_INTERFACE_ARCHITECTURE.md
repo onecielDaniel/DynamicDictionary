@@ -63,7 +63,7 @@ public static DynamicDictionary ToDynamicDictionary(this string json, IJsonDeser
 
 ### 1. IJsonDeserializer 인터페이스 (Core)
 
-**위치**: `OneCiel.System.Dynamics/JsonSerializationInterfaces.cs`
+**위치**: `OneCiel.Core.Dynamics/JsonSerializationInterfaces.cs`
 
 ```csharp
 public interface IJsonDeserializer
@@ -87,7 +87,7 @@ public interface IJsonDeserializer
 
 ### 2. SystemTextJsonDeserializer (Implementation)
 
-**위치**: `OneCiel.System.Dynamics.JsonExtension/SystemTextJsonImplementations.cs`
+**위치**: `OneCiel.Core.Dynamics.JsonExtension/SystemTextJsonImplementations.cs`
 
 ```csharp
 public sealed class SystemTextJsonDeserializer : IJsonDeserializer
@@ -124,7 +124,7 @@ public sealed class SystemTextJsonDeserializer : IJsonDeserializer
 
 ### 3. DynamicDictionary.Create with Interface
 
-**위치**: `OneCiel.System.Dynamics/DynamicDictionary.cs`
+**위치**: `OneCiel.Core.Dynamics/DynamicDictionary.cs`
 
 ```csharp
 /// <summary>
@@ -166,7 +166,7 @@ public static dynamic CreateArray(string json, IJsonDeserializer deserializer)
 
 ### 4. Extension Methods with DI Support
 
-**위치**: `OneCiel.System.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs`
+**위치**: `OneCiel.Core.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs`
 
 ```csharp
 // Default deserializer 설정
@@ -548,14 +548,14 @@ public static class DynamicDictionaryJsonExtensions
 
 ## 📂 변경된 파일
 
-1. ✅ **OneCiel.System.Dynamics.JsonExtension/SystemTextJsonImplementations.cs**
+1. ✅ **OneCiel.Core.Dynamics.JsonExtension/SystemTextJsonImplementations.cs**
    - `SystemTextJsonDeserializer` 클래스 추가
 
-2. ✅ **OneCiel.System.Dynamics/DynamicDictionary.cs**
+2. ✅ **OneCiel.Core.Dynamics/DynamicDictionary.cs**
    - `Create(string, IJsonDeserializer)` 추가
    - `CreateArray(string, IJsonDeserializer)` 추가
 
-3. ✅ **OneCiel.System.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs**
+3. ✅ **OneCiel.Core.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs**
    - `_defaultDeserializer` 필드 추가
    - `SetJsonDeserializer()` 메서드 추가
    - 모든 extension method를 인터페이스 기반으로 리팩토링
@@ -601,10 +601,11 @@ var result = DynamicDictionary.Create(json, mockDeserializer);
 ---
 
 **파일 위치**
-- Interface: `OneCiel.System.Dynamics/JsonSerializationInterfaces.cs`
-- Implementation: `OneCiel.System.Dynamics.JsonExtension/SystemTextJsonImplementations.cs`
-- Factory: `OneCiel.System.Dynamics/DynamicDictionary.cs`
-- Extensions: `OneCiel.System.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs`
+- Interface: `OneCiel.Core.Dynamics/JsonSerializationInterfaces.cs`
+- Implementation: `OneCiel.Core.Dynamics.JsonExtension/SystemTextJsonImplementations.cs`
+- Factory: `OneCiel.Core.Dynamics/DynamicDictionary.cs`
+- Extensions: `OneCiel.Core.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs`
 - Examples: `Examples/RestApiUsageExample.cs`
 - Documentation: `STANDARDIZED_INTERFACE_ARCHITECTURE.md`
+
 

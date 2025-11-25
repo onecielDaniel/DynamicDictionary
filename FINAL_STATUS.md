@@ -9,20 +9,20 @@ Successfully moved JSON serialization interfaces (`IJsonSerializer` and `IJsonDe
 ```
 E:\OneCiel/
 │
-├── OneCiel.System.Dynamics/
+├── OneCiel.Core.Dynamics/
 │   ├── DynamicDictionary.cs
 │   ├── IValueResolver.cs
 │   ├── JsonSerializationInterfaces.cs              ✅ NEW (interfaces)
-│   ├── OneCiel.System.Dynamics.csproj
+│   ├── OneCiel.Core.Dynamics.csproj
 │   └── README.md
 │
-├── OneCiel.System.Dynamics.JsonExtension/
+├── OneCiel.Core.Dynamics.JsonExtension/
 │   ├── SystemTextJsonImplementations.cs            ✅ NEW (implementations)
 │   ├── DynamicDictionaryJsonExtensions.cs
 │   ├── DynamicDictionaryJsonConverter.cs
 │   ├── JsonSerializationInterfaces.cs              ℹ️ (migration note)
 │   ├── JsonElementValueResolver.cs
-│   ├── OneCiel.System.Dynamics.JsonExtension.csproj
+│   ├── OneCiel.Core.Dynamics.JsonExtension.csproj
 │   ├── README.md
 │   ├── ARCHITECTURE.md                            ✅ UPDATED
 │   └── REFACTORING_SUMMARY.md
@@ -41,8 +41,8 @@ E:\OneCiel/
 
 ### 1. **Interfaces Moved to Core** ✅
 ```
-FROM: OneCiel.System.Dynamics.JsonExtension
-TO:   OneCiel.System.Dynamics
+FROM: OneCiel.Core.Dynamics.JsonExtension
+TO:   OneCiel.Core.Dynamics
 
 Files Affected:
   • IJsonSerializer
@@ -51,7 +51,7 @@ Files Affected:
 
 ### 2. **Implementations in Extension** ✅
 ```
-LOCATION: OneCiel.System.Dynamics.JsonExtension
+LOCATION: OneCiel.Core.Dynamics.JsonExtension
 
 Files Created:
   • SystemTextJsonSerializer : IJsonSerializer
@@ -134,9 +134,9 @@ var json = dict.ToJson(serializer);
 
 ## 📋 Files Created
 
-### 1. OneCiel.System.Dynamics/JsonSerializationInterfaces.cs
+### 1. OneCiel.Core.Dynamics/JsonSerializationInterfaces.cs
 ```csharp
-namespace OneCiel.System.Dynamics
+namespace OneCiel.Core.Dynamics
 {
     public interface IJsonSerializer
     {
@@ -154,9 +154,9 @@ namespace OneCiel.System.Dynamics
 - **Dependencies**: None
 - **Purpose**: Define JSON serialization contracts
 
-### 2. OneCiel.System.Dynamics.JsonExtension/SystemTextJsonImplementations.cs
+### 2. OneCiel.Core.Dynamics.JsonExtension/SystemTextJsonImplementations.cs
 ```csharp
-namespace OneCiel.System.Dynamics
+namespace OneCiel.Core.Dynamics
 {
     public sealed class SystemTextJsonSerializer : IJsonSerializer { }
     public sealed class SystemTextJsonDeserializer : IJsonDeserializer { }
@@ -202,15 +202,15 @@ var loaded = await DynamicDictionaryJsonExtensions.FromJsonFileAsync(path);
 ## 🔍 Verification
 
 ### File Existence
-- ✅ `E:\OneCiel\OneCiel.System.Dynamics\JsonSerializationInterfaces.cs` - Created
-- ✅ `E:\OneCiel\OneCiel.System.Dynamics.JsonExtension\SystemTextJsonImplementations.cs` - Created
-- ✅ `E:\OneCiel\OneCiel.System.Dynamics.JsonExtension\JsonSerializationInterfaces.cs` - Updated (migration note)
+- ✅ `E:\OneCiel\OneCiel.Core.Dynamics\JsonSerializationInterfaces.cs` - Created
+- ✅ `E:\OneCiel\OneCiel.Core.Dynamics.JsonExtension\SystemTextJsonImplementations.cs` - Created
+- ✅ `E:\OneCiel\OneCiel.Core.Dynamics.JsonExtension\JsonSerializationInterfaces.cs` - Updated (migration note)
 - ✅ `E:\OneCiel\MIGRATION_SUMMARY.md` - Created
 - ✅ `E:\OneCiel\INTERFACE_MIGRATION_COMPLETE.md` - Created
 
 ### Namespace Correctness
-- ✅ Interfaces in `OneCiel.System.Dynamics` namespace
-- ✅ Implementations in `OneCiel.System.Dynamics` namespace
+- ✅ Interfaces in `OneCiel.Core.Dynamics` namespace
+- ✅ Implementations in `OneCiel.Core.Dynamics` namespace
 - ✅ All dependencies resolve correctly
 
 ### Backward Compatibility
@@ -285,13 +285,13 @@ All existing documentation remains valid:
 
 Both packages are now better structured for NuGet:
 
-### OneCiel.System.Dynamics
+### OneCiel.Core.Dynamics
 - No external dependencies ✅
 - Clean, stable interface contracts ✅
 - Ready for core dependencies ✅
 
-### OneCiel.System.Dynamics.JsonExtension
-- Depends on OneCiel.System.Dynamics ✅
+### OneCiel.Core.Dynamics.JsonExtension
+- Depends on OneCiel.Core.Dynamics ✅
 - Focused on System.Text.Json ✅
 - Clear implementation responsibility ✅
 
@@ -320,7 +320,7 @@ The interface migration is complete and successful! The architecture is now clea
 
 - **Quick Overview**: `MIGRATION_SUMMARY.md`
 - **Detailed Guide**: `INTERFACE_MIGRATION_COMPLETE.md`
-- **Architecture Details**: `OneCiel.System.Dynamics.JsonExtension/ARCHITECTURE.md`
+- **Architecture Details**: `OneCiel.Core.Dynamics.JsonExtension/ARCHITECTURE.md`
 - **Implementation Details**: Code comments in `JsonSerializationInterfaces.cs` and `SystemTextJsonImplementations.cs`
 
 ---
@@ -332,3 +332,4 @@ The interface migration is complete and successful! The architecture is now clea
 **Ready for Production**: ✅ YES
 
 🎊 Interface migration successfully completed! 🎊
+

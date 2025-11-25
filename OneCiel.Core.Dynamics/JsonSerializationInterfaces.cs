@@ -1,6 +1,6 @@
 using System;
 
-namespace OneCiel.System.Dynamics
+namespace OneCiel.Core.Dynamics
 {
     /// <summary>
     /// Unified interface for JSON serialization and deserialization operations with DynamicDictionary.

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using OneCiel.System.Dynamics;
+using OneCiel.Core.Dynamics;
 
 namespace Examples
 {

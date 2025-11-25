@@ -80,7 +80,7 @@ dynamic data = json.ToDynamicDictionary();
 
 ## 🔄 변경된 파일
 
-### 1. `OneCiel.System.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs`
+### 1. `OneCiel.Core.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs`
 - ✅ String extension methods 추가:
   - `ToDynamicDictionary()`
   - `ToDynamicDictionary(options)`
@@ -110,7 +110,7 @@ dynamic data = json.ToDynamicDictionary();
 - ✅ 새로운 extension method API 문서화
 - ✅ 코드 예제 업데이트
 
-### 4. `OneCiel.System.Dynamics.JsonExtension/README.md`
+### 4. `OneCiel.Core.Dynamics.JsonExtension/README.md`
 - ✅ Modern Fluent API 섹션 추가
 - ✅ 모든 예제를 extension method로 업데이트
 - ✅ API Reference 업데이트
@@ -235,12 +235,12 @@ Build succeeded.
 
 ## 📦 NuGet 패키지
 
-### OneCiel.System.Dynamics
+### OneCiel.Core.Dynamics
 - ✅ 빌드 성공
 - ✅ .NET Standard 2.1
 - ✅ 패키지 생성 완료
 
-### OneCiel.System.Dynamics.JsonExtension
+### OneCiel.Core.Dynamics.JsonExtension
 - ✅ 빌드 성공
 - ✅ .NET 8.0 / .NET 9.0
 - ✅ 패키지 생성 완료
@@ -352,13 +352,13 @@ var users = json.ToDynamicArray();
 ```
 
 ### 파일 위치
-- **Extension Methods**: `OneCiel.System.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs`
+- **Extension Methods**: `OneCiel.Core.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs`
 - **예제**: `Examples/RestApiUsageExample.cs`
 - **문서**: 
   - `MODERN_API_REFACTORING.md` - 상세 리팩토링 가이드
   - `FINAL_REFACTORING_STATUS.md` - 이 문서
   - `README.md` - 업데이트됨
-  - `OneCiel.System.Dynamics.JsonExtension/README.md` - 업데이트됨
+  - `OneCiel.Core.Dynamics.JsonExtension/README.md` - 업데이트됨
 
 ---
 
@@ -379,8 +379,8 @@ var users = json.ToDynamicArray();
 ### NuGet 배포
 ```bash
 # 패키지 위치
-OneCiel.System.Dynamics/bin/Release/OneCiel.System.Dynamics.*.nupkg
-OneCiel.System.Dynamics.JsonExtension/bin/Release/OneCiel.System.Dynamics.JsonExtension.*.nupkg
+OneCiel.Core.Dynamics/bin/Release/OneCiel.Core.Dynamics.*.nupkg
+OneCiel.Core.Dynamics.JsonExtension/bin/Release/OneCiel.Core.Dynamics.JsonExtension.*.nupkg
 
 # NuGet에 배포
 dotnet nuget push *.nupkg --api-key <your-key> --source https://api.nuget.org/v3/index.json
@@ -389,11 +389,11 @@ dotnet nuget push *.nupkg --api-key <your-key> --source https://api.nuget.org/v3
 ### 사용 방법
 ```bash
 # 설치
-dotnet add package OneCiel.System.Dynamics
-dotnet add package OneCiel.System.Dynamics.JsonExtension
+dotnet add package OneCiel.Core.Dynamics
+dotnet add package OneCiel.Core.Dynamics.JsonExtension
 
 # 사용
-using OneCiel.System.Dynamics;
+using OneCiel.Core.Dynamics;
 
 var data = json.ToDynamicDictionary();  // ← 간단!
 ```
@@ -401,4 +401,5 @@ var data = json.ToDynamicDictionary();  // ← 간단!
 ---
 
 **🎊 모던 아키텍처 리팩토링 성공적으로 완료! 🎊**
+
 

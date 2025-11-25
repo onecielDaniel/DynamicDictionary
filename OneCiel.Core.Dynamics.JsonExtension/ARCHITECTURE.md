@@ -4,13 +4,13 @@
 
 The refactored JSON functionality uses standardized interfaces for clean, testable, and extensible code.
 
-The interfaces are defined in the **core library** (`OneCiel.System.Dynamics`) and the System.Text.Json implementations are provided in the **JSON extension library** (`OneCiel.System.Dynamics.JsonExtension`).
+The interfaces are defined in the **core library** (`OneCiel.Core.Dynamics`) and the System.Text.Json implementations are provided in the **JSON extension library** (`OneCiel.Core.Dynamics.JsonExtension`).
 
 ## Architecture Diagram
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│   OneCiel.System.Dynamics (Core Library)                    │
+│   OneCiel.Core.Dynamics (Core Library)                    │
 │   - IJsonSerializer interface                               │
 │   - IJsonDeserializer interface                             │
 └──────────────┬──────────────────────────────────────────────┘
@@ -18,7 +18,7 @@ The interfaces are defined in the **core library** (`OneCiel.System.Dynamics`) a
                │ Implemented by
                │
 ┌──────────────▼──────────────────────────────────────────────┐
-│   OneCiel.System.Dynamics.JsonExtension                      │
+│   OneCiel.Core.Dynamics.JsonExtension                      │
 │   - SystemTextJsonSerializer : IJsonSerializer              │
 │   - SystemTextJsonDeserializer : IJsonDeserializer          │
 │   - DynamicDictionaryJsonConverter : JsonConverter          │
@@ -344,12 +344,12 @@ var json3 = dict3.ToJson();
 ## File Structure
 
 ```
-OneCiel.System.Dynamics/
+OneCiel.Core.Dynamics/
 └── JsonSerializationInterfaces.cs
     ├── IJsonSerializer (interface)
     └── IJsonDeserializer (interface)
 
-OneCiel.System.Dynamics.JsonExtension/
+OneCiel.Core.Dynamics.JsonExtension/
 ├── SystemTextJsonImplementations.cs
 │   ├── SystemTextJsonSerializer : IJsonSerializer
 │   └── SystemTextJsonDeserializer : IJsonDeserializer

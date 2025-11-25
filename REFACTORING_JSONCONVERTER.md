@@ -5,7 +5,7 @@
 `SystemTextJsonDeserializer` 클래스를 제거하고 `JsonConverter` 기반 역직렬화로 전환하여 코드를 단순화하고 표준 패턴을 따르도록 개선했습니다.
 
 **리팩토링 일자:** 2025-11-19  
-**프로젝트:** OneCiel.System.Dynamics  
+**프로젝트:** OneCiel.Core.Dynamics  
 **버전:** 1.0.0
 
 ---
@@ -23,7 +23,7 @@
 
 ### 1. 🗑️ SystemTextJsonDeserializer 클래스 삭제
 
-**파일:** `OneCiel.System.Dynamics.JsonExtension/SystemTextJsonImplementations.cs`
+**파일:** `OneCiel.Core.Dynamics.JsonExtension/SystemTextJsonImplementations.cs`
 
 **변경 내용:**
 - `SystemTextJsonDeserializer` 클래스 완전 삭제 (약 165줄)
@@ -52,7 +52,7 @@ public sealed class SystemTextJsonDeserializer : IJsonDeserializer
 
 ### 2. 🔄 DynamicDictionaryJsonConverter 단순화
 
-**파일:** `OneCiel.System.Dynamics.JsonExtension/DynamicDictionaryJsonConverter.cs`
+**파일:** `OneCiel.Core.Dynamics.JsonExtension/DynamicDictionaryJsonConverter.cs`
 
 **변경 내용:**
 - `IJsonDeserializer` 의존성 제거
@@ -96,7 +96,7 @@ public class DynamicDictionaryJsonConverter : JsonConverter<DynamicDictionary>
 
 ### 3. 📦 DynamicDictionaryJsonExtensions 개선
 
-**파일:** `OneCiel.System.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs`
+**파일:** `OneCiel.Core.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs`
 
 **변경 내용:**
 - `SystemTextJsonDeserializer` 대신 `JsonSerializer.Deserialize` 직접 사용
@@ -186,7 +186,7 @@ private static JsonSerializerOptions EnsureConverterInOptions(JsonSerializerOpti
 
 ### 4. 🔥 DynamicDictionary.cs 팩토리 메서드 제거
 
-**파일:** `OneCiel.System.Dynamics/DynamicDictionary.cs`
+**파일:** `OneCiel.Core.Dynamics/DynamicDictionary.cs`
 
 **변경 내용:**
 - `Create(string json, IJsonDeserializer deserializer)` 메서드 제거
@@ -288,7 +288,7 @@ dynamic data = DynamicDictionary.Create(json, deserializer);
 // After
 dynamic data = DynamicDictionaryJsonExtensions.FromJson(json);
 // 또는
-using static OneCiel.System.Dynamics.DynamicDictionaryJsonExtensions;
+using static OneCiel.Core.Dynamics.DynamicDictionaryJsonExtensions;
 dynamic data = FromJson(json);
 ```
 
@@ -334,8 +334,8 @@ Build succeeded.
 
 ### 패키지 생성
 ```
-✅ OneCiel.System.Dynamics.1.0.0.nupkg
-✅ OneCiel.System.Dynamics.JsonExtension.1.0.0.nupkg
+✅ OneCiel.Core.Dynamics.1.0.0.nupkg
+✅ OneCiel.Core.Dynamics.JsonExtension.1.0.0.nupkg
 ```
 
 ---
@@ -367,12 +367,13 @@ Build succeeded.
 ## 📞 참고 정보
 
 - **패키지 위치:**
-  - `OneCiel.System.Dynamics/bin/Release/OneCiel.System.Dynamics.1.0.0.nupkg`
-  - `OneCiel.System.Dynamics.JsonExtension/bin/Release/OneCiel.System.Dynamics.JsonExtension.1.0.0.nupkg`
+  - `OneCiel.Core.Dynamics/bin/Release/OneCiel.Core.Dynamics.1.0.0.nupkg`
+  - `OneCiel.Core.Dynamics.JsonExtension/bin/Release/OneCiel.Core.Dynamics.JsonExtension.1.0.0.nupkg`
 
 - **주요 파일:**
-  - `OneCiel.System.Dynamics.JsonExtension/SystemTextJsonImplementations.cs` - Serializer만 유지
-  - `OneCiel.System.Dynamics.JsonExtension/DynamicDictionaryJsonConverter.cs` - 역직렬화 담당
-  - `OneCiel.System.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs` - 공용 API 제공
+  - `OneCiel.Core.Dynamics.JsonExtension/SystemTextJsonImplementations.cs` - Serializer만 유지
+  - `OneCiel.Core.Dynamics.JsonExtension/DynamicDictionaryJsonConverter.cs` - 역직렬화 담당
+  - `OneCiel.Core.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs` - 공용 API 제공
   - `Examples/RestApiUsageExample.cs` - 업데이트된 예제
+
 

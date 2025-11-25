@@ -13,7 +13,7 @@ dotnet run --project Examples
 ```
 
 ### Option 2: Run from Visual Studio
-1. Open `OneCiel.System.Dynamics.sln` in Visual Studio
+1. Open `OneCiel.Core.Dynamics.sln` in Visual Studio
 2. Set `Examples` as the startup project
 3. Press F5 or click Run
 
@@ -315,8 +315,8 @@ int id = data.GetValue<int>("id", -1); // Returns -1 if conversion fails
 
 - JSONPlaceholder API: https://jsonplaceholder.typicode.com
 - Main Documentation: See [README.md](../README.md)
-- Library Docs: See [OneCiel.System.Dynamics](../OneCiel.System.Dynamics/README.md)
-- JSON Extension: See [JsonExtension](../OneCiel.System.Dynamics.JsonExtension/README.md)
+- Library Docs: See [OneCiel.Core.Dynamics](../OneCiel.Core.Dynamics/README.md)
+- JSON Extension: See [JsonExtension](../OneCiel.Core.Dynamics.JsonExtension/README.md)
 
 ## Need Help?
 

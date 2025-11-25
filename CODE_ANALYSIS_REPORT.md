@@ -2,10 +2,10 @@
 
 ## 📋 개요
 
-OneCiel.System.Dynamics NuGet 패키지 공개를 위한 전체 코드 분석 및 에러 교정을 완료했습니다.
+OneCiel.Core.Dynamics NuGet 패키지 공개를 위한 전체 코드 분석 및 에러 교정을 완료했습니다.
 
 **분석 일자:** 2025-11-19  
-**프로젝트:** OneCiel.System.Dynamics  
+**프로젝트:** OneCiel.Core.Dynamics  
 **패키지 버전:** 1.0.0
 
 ---
@@ -14,7 +14,7 @@ OneCiel.System.Dynamics NuGet 패키지 공개를 위한 전체 코드 분석 �
 
 ### 1. 🔴 치명적 에러: 인터페이스 구현 누락
 
-**파일:** `OneCiel.System.Dynamics.JsonExtension/SystemTextJsonImplementations.cs`
+**파일:** `OneCiel.Core.Dynamics.JsonExtension/SystemTextJsonImplementations.cs`
 
 **문제:**
 - `SystemTextJsonDeserializer` 클래스에서 `IJsonDeserializer` 인터페이스의 메서드들이 주석 처리되어 있음
@@ -36,8 +36,8 @@ public DynamicDictionary[] DeserializeArray(string json) { ... }
 ### 2. ⚠️ Nullable 참조 경고 (10건)
 
 **파일:** 
-- `OneCiel.System.Dynamics.JsonExtension/JsonElementValueResolver.cs`
-- `OneCiel.System.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs`
+- `OneCiel.Core.Dynamics.JsonExtension/JsonElementValueResolver.cs`
+- `OneCiel.Core.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs`
 
 **문제:**
 - CS8603: Possible null reference return 경고
@@ -89,7 +89,7 @@ public object? Resolve(object value)
 
 ### 4. 📝 코드 문서화 개선
 
-**파일:** `OneCiel.System.Dynamics/DynamicDictionary.cs`
+**파일:** `OneCiel.Core.Dynamics/DynamicDictionary.cs`
 
 **문제:**
 - `#nullable disable` 디렉티브 사용 이유가 명시되지 않음
@@ -117,13 +117,13 @@ Build succeeded.
 
 ### 📦 생성된 패키지
 
-1. **OneCiel.System.Dynamics.1.0.0.nupkg**
+1. **OneCiel.Core.Dynamics.1.0.0.nupkg**
    - 대상 프레임워크: .NET Standard 2.1
    - 크기: 최적화됨
    - README 포함: ✅
    - XML 문서: ✅
 
-2. **OneCiel.System.Dynamics.JsonExtension.1.0.0.nupkg**
+2. **OneCiel.Core.Dynamics.JsonExtension.1.0.0.nupkg**
    - 대상 프레임워크: .NET 8.0, .NET 9.0
    - 크기: 최적화됨
    - README 포함: ✅
@@ -146,14 +146,14 @@ Build succeeded.
 ### 프로젝트 구조
 
 ```
-OneCiel.System.Dynamics/
-├── 📁 OneCiel.System.Dynamics (Core Library)
+OneCiel.Core.Dynamics/
+├── 📁 OneCiel.Core.Dynamics (Core Library)
 │   ├── DynamicDictionary.cs         ✅ 검증 완료
 │   ├── IValueResolver.cs            ✅ 검증 완료
 │   ├── JsonSerializationInterfaces.cs ✅ 검증 완료
 │   └── README.md                    ✅ 패키지에 포함
 │
-├── 📁 OneCiel.System.Dynamics.JsonExtension
+├── 📁 OneCiel.Core.Dynamics.JsonExtension
 │   ├── DynamicDictionaryJsonConverter.cs     ✅ 검증 완료
 │   ├── DynamicDictionaryJsonExtensions.cs    ✅ 수정 완료
 │   ├── JsonElementValueResolver.cs           ✅ 수정 완료
@@ -201,13 +201,13 @@ NuGet.org에 공개하기 전 추가 확인사항:
 
 2. **패키지 검증**
    ```bash
-   dotnet nuget verify OneCiel.System.Dynamics.1.0.0.nupkg
+   dotnet nuget verify OneCiel.Core.Dynamics.1.0.0.nupkg
    ```
 
 3. **패키지 게시** (준비 완료)
    ```bash
-   dotnet nuget push OneCiel.System.Dynamics.1.0.0.nupkg --api-key YOUR_API_KEY --source https://api.nuget.org/v3/index.json
-   dotnet nuget push OneCiel.System.Dynamics.JsonExtension.1.0.0.nupkg --api-key YOUR_API_KEY --source https://api.nuget.org/v3/index.json
+   dotnet nuget push OneCiel.Core.Dynamics.1.0.0.nupkg --api-key YOUR_API_KEY --source https://api.nuget.org/v3/index.json
+   dotnet nuget push OneCiel.Core.Dynamics.JsonExtension.1.0.0.nupkg --api-key YOUR_API_KEY --source https://api.nuget.org/v3/index.json
    ```
 
 ---
@@ -242,8 +242,9 @@ NuGet.org에 공개하기 전 추가 확인사항:
 - **대상 프레임워크:** 
   - Core: .NET Standard 2.1
   - JsonExtension: .NET 8.0, .NET 9.0
-- **저장소:** https://github.com/oneciel/OneCiel.System.Dynamics
+- **저장소:** https://github.com/oneciel/OneCiel.Core.Dynamics
 - **패키지 위치:**
-  - `OneCiel.System.Dynamics/bin/Release/OneCiel.System.Dynamics.1.0.0.nupkg`
-  - `OneCiel.System.Dynamics.JsonExtension/bin/Release/OneCiel.System.Dynamics.JsonExtension.1.0.0.nupkg`
+  - `OneCiel.Core.Dynamics/bin/Release/OneCiel.Core.Dynamics.1.0.0.nupkg`
+  - `OneCiel.Core.Dynamics.JsonExtension/bin/Release/OneCiel.Core.Dynamics.JsonExtension.1.0.0.nupkg`
+
 

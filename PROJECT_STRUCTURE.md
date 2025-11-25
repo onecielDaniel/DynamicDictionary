@@ -1,18 +1,18 @@
-# OneCiel.System.Dynamics - Project Structure Summary
+# OneCiel.Core.Dynamics - Project Structure Summary
 
 ## 📁 Directory Structure
 
 ```
 E:\OneCiel/
-├── OneCiel.System.Dynamics.sln                    # Solution file
+├── OneCiel.Core.Dynamics.sln                    # Solution file
 │
-├── OneCiel.System.Dynamics/                       # Core Library Project
-│   ├── OneCiel.System.Dynamics.csproj            # Project file (.NET Standard 2.1)
+├── OneCiel.Core.Dynamics/                       # Core Library Project
+│   ├── OneCiel.Core.Dynamics.csproj            # Project file (.NET Standard 2.1)
 │   ├── DynamicDictionary.cs                      # Main class with resolver support
 │   └── README.md                                 # Package documentation
 │
-├── OneCiel.System.Dynamics.JsonExtension/        # JSON Extension Project
-│   ├── OneCiel.System.Dynamics.JsonExtension.csproj
+├── OneCiel.Core.Dynamics.JsonExtension/        # JSON Extension Project
+│   ├── OneCiel.Core.Dynamics.JsonExtension.csproj
 │   ├── DynamicDictionaryJsonExtensions.cs        # Extension methods for JSON
 │   ├── DynamicDictionaryJsonConverter.cs         # JsonConverter implementation
 │   ├── JsonElementValueResolver.cs               # Resolver for JsonElement conversion
@@ -29,7 +29,7 @@ E:\OneCiel/
 
 ## 📦 Package Structure
 
-### OneCiel.System.Dynamics (v1.0.0)
+### OneCiel.Core.Dynamics (v1.0.0)
 **Target Framework**: .NET Standard 2.1
 
 **Key Features**:
@@ -53,7 +53,7 @@ E:\OneCiel/
 - `ClearValueResolvers()` - Clear all resolvers
 - `GetRegisteredResolvers()` - Get current resolvers
 
-### OneCiel.System.Dynamics.JsonExtension (v1.0.0)
+### OneCiel.Core.Dynamics.JsonExtension (v1.0.0)
 **Target Frameworks**: .NET 8.0, .NET 9.0
 
 **Key Features**:
@@ -138,14 +138,14 @@ dotnet clean --configuration Release
 dotnet build --configuration Release
 
 # Create NuGet packages
-dotnet pack OneCiel.System.Dynamics\OneCiel.System.Dynamics.csproj --configuration Release
-dotnet pack OneCiel.System.Dynamics.JsonExtension\OneCiel.System.Dynamics.JsonExtension.csproj --configuration Release
+dotnet pack OneCiel.Core.Dynamics\OneCiel.Core.Dynamics.csproj --configuration Release
+dotnet pack OneCiel.Core.Dynamics.JsonExtension\OneCiel.Core.Dynamics.JsonExtension.csproj --configuration Release
 ```
 
 ### Package Output
 
-- `OneCiel.System.Dynamics\bin\Release\OneCiel.System.Dynamics.1.0.0.nupkg`
-- `OneCiel.System.Dynamics.JsonExtension\bin\Release\OneCiel.System.Dynamics.JsonExtension.1.0.0.nupkg`
+- `OneCiel.Core.Dynamics\bin\Release\OneCiel.Core.Dynamics.1.0.0.nupkg`
+- `OneCiel.Core.Dynamics.JsonExtension\bin\Release\OneCiel.Core.Dynamics.JsonExtension.1.0.0.nupkg`
 
 ### Publishing to NuGet
 
@@ -178,8 +178,8 @@ See PACKAGING.md for detailed instructions.
 ## 📚 Documentation
 
 - **README.md** (Root) - Overview and resolver pattern explanation
-- **OneCiel.System.Dynamics/README.md** - Core library with resolver examples
-- **OneCiel.System.Dynamics.JsonExtension/README.md** - JSON extension with resolver details
+- **OneCiel.Core.Dynamics/README.md** - Core library with resolver examples
+- **OneCiel.Core.Dynamics.JsonExtension/README.md** - JSON extension with resolver details
 - **PROJECT_STRUCTURE.md** - This document (architecture and structure)
 - **CHANGELOG.md** - Version history
 - **CONTRIBUTING.md** - Developer guidelines
@@ -233,7 +233,7 @@ Additional conversions via JsonElementValueResolver:
 ## 🎓 Usage Example with Resolvers
 
 ```csharp
-using OneCiel.System.Dynamics;
+using OneCiel.Core.Dynamics;
 using System.Text.Json;
 
 // 1. Load JSON (automatically registers JsonElementValueResolver)
@@ -281,3 +281,4 @@ var resolved = d.user.name; // Goes through resolver chain
 **Version**: 1.0.0
 **Status**: ✅ Complete with Resolver Pattern Implementation
 **Last Updated**: January 2024
+

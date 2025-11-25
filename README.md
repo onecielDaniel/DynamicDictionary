@@ -1,7 +1,7 @@
-# OneCiel.System.Dynamics
+# OneCiel.Core.Dynamics
 
-[![NuGet](https://img.shields.io/nuget/v/OneCiel.System.Dynamics.svg)](https://www.nuget.org/packages/OneCiel.System.Dynamics)
-[![NuGet](https://img.shields.io/nuget/v/OneCiel.System.Dynamics.JsonExtension.svg)](https://www.nuget.org/packages/OneCiel.System.Dynamics.JsonExtension)
+[![NuGet](https://img.shields.io/nuget/v/OneCiel.Core.Dynamics.svg)](https://www.nuget.org/packages/OneCiel.Core.Dynamics)
+[![NuGet](https://img.shields.io/nuget/v/OneCiel.Core.Dynamics.JsonExtension.svg)](https://www.nuget.org/packages/OneCiel.Core.Dynamics.JsonExtension)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A flexible and powerful dynamic dictionary implementation for .NET that provides safe, resilient handling of REST API JSON data. Perfect for scenarios where API responses are unpredictable - no crashes from missing fields, extra fields, or API changes. Supports both dynamic access and strongly-typed models with selective property definition.
@@ -24,11 +24,11 @@ A flexible and powerful dynamic dictionary implementation for .NET that provides
 
 ## 📦 Packages
 
-### OneCiel.System.Dynamics
+### OneCiel.Core.Dynamics
 The core library targeting .NET Standard 2.1, providing the base `DynamicDictionary` class with value resolver support.
 
 ```bash
-dotnet add package OneCiel.System.Dynamics
+dotnet add package OneCiel.Core.Dynamics
 ```
 
 **Target Framework**: .NET Standard 2.1 (compatible with .NET 5.0+, .NET Framework 4.7.2+)
@@ -42,11 +42,11 @@ dotnet add package OneCiel.System.Dynamics
 - Factory methods for creating instances
 - Standardized JSON serialization interfaces
 
-### OneCiel.System.Dynamics.JsonExtension
+### OneCiel.Core.Dynamics.JsonExtension
 Extension package for .NET 8/9 providing seamless JSON serialization and deserialization using `System.Text.Json` with automatic JsonElement conversion.
 
 ```bash
-dotnet add package OneCiel.System.Dynamics.JsonExtension
+dotnet add package OneCiel.Core.Dynamics.JsonExtension
 ```
 
 **Target Frameworks**: .NET 8.0, .NET 9.0
@@ -59,7 +59,7 @@ dotnet add package OneCiel.System.Dynamics.JsonExtension
 - Pretty-printing and flexible formatting
 - Automatic default serializer initialization
 
-## 🛡️ Why OneCiel.System.Dynamics?
+## 🛡️ Why OneCiel.Core.Dynamics?
 
 ### Problem: REST API JSON Data is Unpredictable
 
@@ -80,7 +80,7 @@ When working with REST APIs, you often face these challenges:
 ### Example: REST API Response Handling
 
 ```csharp
-using OneCiel.System.Dynamics;
+using OneCiel.Core.Dynamics;
 using System.Net.Http;
 using System.Text.Json;
 
@@ -159,7 +159,7 @@ string fullName = user.fullName; // "John Doe" (new field accessible)
 The most intuitive way to use DynamicDictionary - access properties just like regular objects!
 
 ```csharp
-using OneCiel.System.Dynamics;
+using OneCiel.Core.Dynamics;
 
 // Create a user object with dynamic access
 dynamic user = new DynamicDictionary();
@@ -252,7 +252,7 @@ var users = data.users;                         // object[]
 ### JSON Support (with JsonExtension package)
 
 ```csharp
-using OneCiel.System.Dynamics;
+using OneCiel.Core.Dynamics;
 
 // Create and use with dynamic access
 dynamic person = new DynamicDictionary();
@@ -405,13 +405,13 @@ public interface IDynamicsJsonSerializer
 ### Package Structure
 
 ```
-OneCiel.System.Dynamics (Core)
+OneCiel.Core.Dynamics (Core)
 ├── DynamicDictionary.cs              # Main class
 ├── IValueResolver.cs                  # Value resolver interface
 ├── JsonSerializationInterfaces.cs     # JSON serialization interfaces
 └── README.md
 
-OneCiel.System.Dynamics.JsonExtension
+OneCiel.Core.Dynamics.JsonExtension
 ├── SystemTextJsonImplementations.cs   # System.Text.Json implementations
 ├── DynamicDictionaryJsonExtensions.cs # Extension methods
 ├── DynamicDictionaryJsonConverter.cs  # JsonConverter for System.Text.Json
@@ -544,11 +544,11 @@ dotnet restore
 dotnet build --configuration Release
 
 # Pack
-dotnet pack OneCiel.System.Dynamics\OneCiel.System.Dynamics.csproj --configuration Release --output packages
-dotnet pack OneCiel.System.Dynamics.JsonExtension\OneCiel.System.Dynamics.JsonExtension.csproj --configuration Release --output packages
+dotnet pack OneCiel.Core.Dynamics\OneCiel.Core.Dynamics.csproj --configuration Release --output packages
+dotnet pack OneCiel.Core.Dynamics.JsonExtension\OneCiel.Core.Dynamics.JsonExtension.csproj --configuration Release --output packages
 
 # Publish (requires NuGet API key)
-dotnet nuget push packages\OneCiel.System.Dynamics.*.nupkg --api-key YOUR_API_KEY --source https://api.nuget.org/v3/index.json
+dotnet nuget push packages\OneCiel.Core.Dynamics.*.nupkg --api-key YOUR_API_KEY --source https://api.nuget.org/v3/index.json
 ```
 
 ### NuGet Configuration
@@ -557,8 +557,8 @@ The project includes a `.nuget.config` file for NuGet package source configurati
 
 ## 📖 Documentation
 
-- **[Core Library README](OneCiel.System.Dynamics/README.md)**: Detailed guide for the core library
-- **[JSON Extension README](OneCiel.System.Dynamics.JsonExtension/README.md)**: JSON features and usage
+- **[Core Library README](OneCiel.Core.Dynamics/README.md)**: Detailed guide for the core library
+- **[JSON Extension README](OneCiel.Core.Dynamics.JsonExtension/README.md)**: JSON features and usage
 - **[Project Structure](PROJECT_STRUCTURE.md)**: Detailed project organization
 - **[CHANGELOG](CHANGELOG.md)**: Version history and changes
 - **[CONTRIBUTING](CONTRIBUTING.md)**: Guidelines for contributors
@@ -603,3 +603,4 @@ For issues, questions, or suggestions:
 ** Made with ❤️ by OneCiel **
 ** Copyright © 2024 OneCiel. All rights reserved. **
 ** Contact: daniel.yun@oneciel.com **
+

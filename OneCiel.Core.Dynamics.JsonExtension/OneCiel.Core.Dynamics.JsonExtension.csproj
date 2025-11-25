@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Nullable>enable</Nullable>
+    
+    <!-- NuGet Package Information -->
+    <PackageId>OneCiel.Core.Dynamics.JsonExtension</PackageId>
+    <Version>0.0.2.1</Version>
+    <Title>OneCiel.Core.Dynamics.JsonExtension</Title>
+    <Authors>OneCiel</Authors>
+    <Description>JSON serialization and deserialization extensions for OneCiel.Core.Dynamics. Provides seamless System.Text.Json integration with DynamicDictionary.</Description>
+    <PackageProjectUrl>https://github.com/oneciel/OneCiel.Core.Dynamics</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>json;dynamic;dictionary;serialization;system.text.json</PackageTags>
+    <RepositoryUrl>https://github.com/oneciel/OneCiel.Core.Dynamics</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Initial release of JSON extension for OneCiel.Core.Dynamics.</PackageReleaseNotes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OneCiel.Core.Dynamics\OneCiel.Core.Dynamics.csproj" />
+    <ProjectReference Include="..\OneCiel.Core.Dynamics\OneCiel.Core.Dynamics.csproj" />
+  </ItemGroup>
+
+</Project>
+

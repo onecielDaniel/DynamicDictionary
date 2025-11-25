@@ -175,7 +175,7 @@ var model = DynamicDictionary.Create<MyCustomModel>(json, serializer);
 
 | 파일 | 설명 |
 |------|------|
-| `OneCiel.System.Dynamics\DynamicDictionary.cs` | Generic `Create<T>()`, `CreateArray<T>()` 메서드 추가 |
+| `OneCiel.Core.Dynamics\DynamicDictionary.cs` | Generic `Create<T>()`, `CreateArray<T>()` 메서드 추가 |
 | `Examples\JsonPlaceholderModels.cs` | 6개 강타입 모델 클래스 |
 | `Examples\StronglyTypedModelExample.cs` | 6개 실용적인 예제 |
 | `Examples\QuickTest.cs` | 간단한 테스트 |
@@ -247,4 +247,5 @@ class Program
 - `where T : DynamicDictionary, new()`
 - T는 **반드시** `DynamicDictionary`나 `Dictionary`를 상속받은 클래스만 가능
 - 컴파일 타임에 타입 안전성 보장
+
 

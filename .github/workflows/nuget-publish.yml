@@ -28,24 +28,24 @@ jobs:
         dotnet-version: '8.0.x'
     
     - name: Restore dependencies
-      run: dotnet restore OneCiel.System.Dynamics.sln
+      run: dotnet restore OneCiel.Core.Dynamics.sln
     
     - name: Build solution
-      run: dotnet build OneCiel.System.Dynamics.sln --configuration Release --no-restore
+      run: dotnet build OneCiel.Core.Dynamics.sln --configuration Release --no-restore
     
     - name: Create packages directory
       run: mkdir -p packages
     
-    - name: Pack OneCiel.System.Dynamics
+    - name: Pack OneCiel.Core.Dynamics
       run: |
-        dotnet pack OneCiel.System.Dynamics/OneCiel.System.Dynamics.csproj \
+        dotnet pack OneCiel.Core.Dynamics/OneCiel.Core.Dynamics.csproj \
           --configuration Release \
           --no-build \
           --output ./packages
     
-    - name: Pack OneCiel.System.Dynamics.JsonExtension
+    - name: Pack OneCiel.Core.Dynamics.JsonExtension
       run: |
-        dotnet pack OneCiel.System.Dynamics.JsonExtension/OneCiel.System.Dynamics.JsonExtension.csproj \
+        dotnet pack OneCiel.Core.Dynamics.JsonExtension/OneCiel.Core.Dynamics.JsonExtension.csproj \
           --configuration Release \
           --no-build \
           --output ./packages
@@ -53,19 +53,19 @@ jobs:
     - name: List created packages
       run: ls -lh packages/*.nupkg
     
-    - name: Publish OneCiel.System.Dynamics to NuGet
+    - name: Publish OneCiel.Core.Dynamics to NuGet
       if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
       run: |
-        dotnet nuget push packages/OneCiel.System.Dynamics.*.nupkg \
+        dotnet nuget push packages/OneCiel.Core.Dynamics.*.nupkg \
           --api-key ${{ secrets.NUGET_API_KEY }} \
           --source https://api.nuget.org/v3/index.json \
           --skip-duplicate
       continue-on-error: true
     
-    - name: Publish OneCiel.System.Dynamics.JsonExtension to NuGet
+    - name: Publish OneCiel.Core.Dynamics.JsonExtension to NuGet
       if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
       run: |
-        dotnet nuget push packages/OneCiel.System.Dynamics.JsonExtension.*.nupkg \
+        dotnet nuget push packages/OneCiel.Core.Dynamics.JsonExtension.*.nupkg \
           --api-key ${{ secrets.NUGET_API_KEY }} \
           --source https://api.nuget.org/v3/index.json \
           --skip-duplicate
@@ -77,4 +77,5 @@ jobs:
         name: nuget-packages
         path: packages/*.nupkg
         retention-days: 30
+
 

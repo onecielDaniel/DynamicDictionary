@@ -6,25 +6,25 @@ Successfully moved JSON serialization interfaces from the extension library to t
 
 ## 📂 File Structure
 
-### Core Library (OneCiel.System.Dynamics)
+### Core Library (OneCiel.Core.Dynamics)
 ```
-OneCiel.System.Dynamics/
+OneCiel.Core.Dynamics/
 ├── DynamicDictionary.cs                    (core class)
 ├── IValueResolver.cs                       (existing interface)
 ├── JsonSerializationInterfaces.cs ✅ NEW   (interface definitions)
-├── OneCiel.System.Dynamics.csproj
+├── OneCiel.Core.Dynamics.csproj
 └── README.md
 ```
 
-### Extension Library (OneCiel.System.Dynamics.JsonExtension)
+### Extension Library (OneCiel.Core.Dynamics.JsonExtension)
 ```
-OneCiel.System.Dynamics.JsonExtension/
+OneCiel.Core.Dynamics.JsonExtension/
 ├── SystemTextJsonImplementations.cs ✅ NEW (System.Text.Json implementations)
 ├── DynamicDictionaryJsonExtensions.cs      (extension methods - updated)
 ├── DynamicDictionaryJsonConverter.cs       (JsonConverter - unchanged)
 ├── JsonSerializationInterfaces.cs ℹ️       (migration note)
 ├── JsonElementValueResolver.cs
-├── OneCiel.System.Dynamics.JsonExtension.csproj
+├── OneCiel.Core.Dynamics.JsonExtension.csproj
 ├── README.md
 ├── ARCHITECTURE.md ✅ UPDATED
 └── REFACTORING_SUMMARY.md
@@ -34,7 +34,7 @@ OneCiel.System.Dynamics.JsonExtension/
 
 ### ✅ Moved to Core Library
 ```csharp
-// OneCiel.System.Dynamics/JsonSerializationInterfaces.cs
+// OneCiel.Core.Dynamics/JsonSerializationInterfaces.cs
 public interface IJsonSerializer
 {
     string Serialize(object obj);
@@ -49,7 +49,7 @@ public interface IJsonDeserializer
 
 ### ✅ Moved to Extension Library
 ```csharp
-// OneCiel.System.Dynamics.JsonExtension/SystemTextJsonImplementations.cs
+// OneCiel.Core.Dynamics.JsonExtension/SystemTextJsonImplementations.cs
 public sealed class SystemTextJsonSerializer : IJsonSerializer { }
 public sealed class SystemTextJsonDeserializer : IJsonDeserializer { }
 ```
@@ -117,13 +117,13 @@ var dict = DynamicDictionaryJsonExtensions.FromJson(json, deserializer);
 
 ## 📋 New File Contents
 
-### OneCiel.System.Dynamics/JsonSerializationInterfaces.cs
+### OneCiel.Core.Dynamics/JsonSerializationInterfaces.cs
 - 45 lines of clean interface definitions
 - Full XML documentation
 - Type-safe contracts
 - No dependencies
 
-### OneCiel.System.Dynamics.JsonExtension/SystemTextJsonImplementations.cs
+### OneCiel.Core.Dynamics.JsonExtension/SystemTextJsonImplementations.cs
 - 350+ lines of production-ready code
 - System.Text.Json implementations
 - Proper error handling
@@ -160,9 +160,9 @@ var dict = DynamicDictionaryJsonExtensions.FromJson(json);
 ### Files Updated
 - ✅ `INTERFACE_MIGRATION_COMPLETE.md` - This migration summary
 - ✅ `ARCHITECTURE.md` - Updated with new structure
-- ✅ `OneCiel.System.Dynamics/JsonSerializationInterfaces.cs` - New file
-- ✅ `OneCiel.System.Dynamics.JsonExtension/SystemTextJsonImplementations.cs` - New file
-- ✅ `OneCiel.System.Dynamics.JsonExtension/JsonSerializationInterfaces.cs` - Migration note
+- ✅ `OneCiel.Core.Dynamics/JsonSerializationInterfaces.cs` - New file
+- ✅ `OneCiel.Core.Dynamics.JsonExtension/SystemTextJsonImplementations.cs` - New file
+- ✅ `OneCiel.Core.Dynamics.JsonExtension/JsonSerializationInterfaces.cs` - Migration note
 
 ### Files Unchanged (Still Valid)
 - ✅ `REFACTORING_SUMMARY.md` - Still accurate
@@ -174,7 +174,7 @@ var dict = DynamicDictionaryJsonExtensions.FromJson(json);
 ### 1. Framework Independence ✅
 Core library has no external dependencies
 ```csharp
-// OneCiel.System.Dynamics.csproj
+// OneCiel.Core.Dynamics.csproj
 <TargetFramework>net8.0</TargetFramework>
 // No dependencies!
 ```
@@ -211,7 +211,7 @@ public class MessagePackSerializer : IJsonSerializer { }
 Use interfaces from core without extension
 ```csharp
 // Only need core for interface definitions
-using OneCiel.System.Dynamics;
+using OneCiel.Core.Dynamics;
 var serializer = CreateMyCustomSerializer();
 ```
 
@@ -232,14 +232,14 @@ All 8 examples run without modification:
 
 ## 📦 NuGet Impact
 
-### OneCiel.System.Dynamics
+### OneCiel.Core.Dynamics
 - **Status**: ✅ No dependencies
 - **Size**: Smaller
 - **Stability**: More stable
 
-### OneCiel.System.Dynamics.JsonExtension
+### OneCiel.Core.Dynamics.JsonExtension
 - **Status**: ✅ Only depends on core
-- **Dependency**: OneCiel.System.Dynamics
+- **Dependency**: OneCiel.Core.Dynamics
 - **New Functionality**: Same, better organized
 
 ## 🔗 Dependency Chain
@@ -247,9 +247,9 @@ All 8 examples run without modification:
 ```
 User Application
     ↓
-OneCiel.System.Dynamics.JsonExtension
+OneCiel.Core.Dynamics.JsonExtension
     ↓
-OneCiel.System.Dynamics
+OneCiel.Core.Dynamics
     ↓
 System.Text.Json (built-in)
 ```
@@ -285,8 +285,8 @@ dotnet run --project Examples
 ```
 
 ### 3. Update NuGet Package Info (if publishing)
-- Interfaces now come from `OneCiel.System.Dynamics`
-- Implementations from `OneCiel.System.Dynamics.JsonExtension`
+- Interfaces now come from `OneCiel.Core.Dynamics`
+- Implementations from `OneCiel.Core.Dynamics.JsonExtension`
 
 ### 4. Update Documentation (if needed)
 - User guides can mention interfaces in core
@@ -315,3 +315,4 @@ dotnet run --project Examples
 **Architecture Quality**: ✅ **EXCELLENT**
 
 The interfaces are now in their proper place in the core library! 🎉
+

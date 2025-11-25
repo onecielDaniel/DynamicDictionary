@@ -93,7 +93,7 @@ public static dynamic CreateArray(string json, Func<string, DynamicDictionary[]>
 ### 기본 사용법
 
 ```csharp
-using OneCiel.System.Dynamics;
+using OneCiel.Core.Dynamics;
 
 // System.Text.Json 사용
 dynamic user = DynamicDictionary.Create(json, DynamicDictionaryJsonExtensions.FromJson);
@@ -365,7 +365,7 @@ dynamic posts = DynamicDictionary.CreateArray(postsJson, DynamicDictionaryJsonEx
 ### 편의성을 위한 using static
 
 ```csharp
-using static OneCiel.System.Dynamics.DynamicDictionaryJsonExtensions;
+using static OneCiel.Core.Dynamics.DynamicDictionaryJsonExtensions;
 
 // 더 짧게
 dynamic post = DynamicDictionary.Create(postJson, FromJson);
@@ -455,7 +455,8 @@ dynamic data = DynamicDictionary.Create(json, DynamicDictionaryJsonExtensions.Fr
 ```
 
 ### 파일 위치
-- **Core 구현**: `OneCiel.System.Dynamics/DynamicDictionary.cs`
-- **JsonExtension**: `OneCiel.System.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs`
+- **Core 구현**: `OneCiel.Core.Dynamics/DynamicDictionary.cs`
+- **JsonExtension**: `OneCiel.Core.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs`
 - **예제**: `Examples/RestApiUsageExample.cs`
+
 

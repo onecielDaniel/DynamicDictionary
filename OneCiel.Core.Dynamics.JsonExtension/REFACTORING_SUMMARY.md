@@ -344,7 +344,7 @@ public class DynamicDictionaryJsonConverter : JsonConverter<DynamicDictionary>
 ## Documentation Structure
 
 ```
-E:\OneCiel\OneCiel.System.Dynamics.JsonExtension/
+E:\OneCiel\OneCiel.Core.Dynamics.JsonExtension/
 ├── DynamicDictionaryJsonExtensions.cs    # Extension methods
 ├── DynamicDictionaryJsonConverter.cs     # JsonConverter
 ├── JsonSerializationInterfaces.cs        # Interfaces & implementations

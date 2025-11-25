@@ -1,4 +1,4 @@
-# OneCiel.System.Dynamics - Complete Project Summary
+# OneCiel.Core.Dynamics - Complete Project Summary
 
 ## ✅ Project Complete!
 
@@ -14,7 +14,7 @@ All files have been successfully created in `E:\OneCiel` with:
 ```
 E:\OneCiel/
 │
-├── OneCiel.System.Dynamics.sln              # Solution file (updated with Examples)
+├── OneCiel.Core.Dynamics.sln              # Solution file (updated with Examples)
 ├── .gitignore                               # Git configuration
 ├── LICENSE                                  # MIT License
 │
@@ -24,13 +24,13 @@ E:\OneCiel/
 ├── PACKAGING.md                             # NuGet build & publish guide
 ├── PROJECT_STRUCTURE.md                     # Project structure details
 │
-├── OneCiel.System.Dynamics/
-│   ├── OneCiel.System.Dynamics.csproj      # .NET Standard 2.1 project
+├── OneCiel.Core.Dynamics/
+│   ├── OneCiel.Core.Dynamics.csproj      # .NET Standard 2.1 project
 │   ├── DynamicDictionary.cs                # Core class (730 lines)
 │   └── README.md                           # Library documentation
 │
-├── OneCiel.System.Dynamics.JsonExtension/
-│   ├── OneCiel.System.Dynamics.JsonExtension.csproj
+├── OneCiel.Core.Dynamics.JsonExtension/
+│   ├── OneCiel.Core.Dynamics.JsonExtension.csproj
 │   ├── DynamicDictionaryJsonExtensions.cs  # Extension methods
 │   ├── DynamicDictionaryJsonConverter.cs   # JsonConverter implementation
 │   └── README.md                           # JSON extension documentation
@@ -98,8 +98,8 @@ dotnet run --project Examples
 
 ### Create NuGet Packages
 ```bash
-dotnet pack OneCiel.System.Dynamics\OneCiel.System.Dynamics.csproj --configuration Release
-dotnet pack OneCiel.System.Dynamics.JsonExtension\OneCiel.System.Dynamics.JsonExtension.csproj --configuration Release
+dotnet pack OneCiel.Core.Dynamics\OneCiel.Core.Dynamics.csproj --configuration Release
+dotnet pack OneCiel.Core.Dynamics.JsonExtension\OneCiel.Core.Dynamics.JsonExtension.csproj --configuration Release
 ```
 
 ## 📖 Documentation Provided
@@ -108,7 +108,7 @@ dotnet pack OneCiel.System.Dynamics.JsonExtension\OneCiel.System.Dynamics.JsonEx
 |----------|---------|----------|
 | **README.md** (Main) | Project overview, features, quick start | Everyone |
 | **PROJECT_STRUCTURE.md** | Detailed structure breakdown | Developers |
-| **OneCiel.System.Dynamics/README.md** | Core library usage guide | Users |
+| **OneCiel.Core.Dynamics/README.md** | Core library usage guide | Users |
 | **JsonExtension/README.md** | JSON features guide | Users |
 | **Examples/README.md** | Comprehensive examples guide | Learners |
 | **Examples/QUICKSTART.md** | Quick example walkthrough | Beginners |
@@ -220,15 +220,15 @@ public sealed class MyModel : DynamicDictionary
 
 Both packages are ready for NuGet:
 
-**OneCiel.System.Dynamics**
+**OneCiel.Core.Dynamics**
 - Target: .NET Standard 2.1
 - No external dependencies
 - Version: 1.0.0
 - Ready to publish
 
-**OneCiel.System.Dynamics.JsonExtension**
+**OneCiel.Core.Dynamics.JsonExtension**
 - Targets: .NET 8.0, 9.0
-- Depends on: OneCiel.System.Dynamics
+- Depends on: OneCiel.Core.Dynamics
 - Version: 1.0.0
 - Ready to publish
 
@@ -258,11 +258,11 @@ All code includes:
 ## 🔗 File Locations
 
 **Core Library:**
-- `E:\OneCiel\OneCiel.System.Dynamics\DynamicDictionary.cs` (730 lines)
+- `E:\OneCiel\OneCiel.Core.Dynamics\DynamicDictionary.cs` (730 lines)
 
 **JSON Extension:**
-- `E:\OneCiel\OneCiel.System.Dynamics.JsonExtension\DynamicDictionaryJsonExtensions.cs`
-- `E:\OneCiel\OneCiel.System.Dynamics.JsonExtension\DynamicDictionaryJsonConverter.cs`
+- `E:\OneCiel\OneCiel.Core.Dynamics.JsonExtension\DynamicDictionaryJsonExtensions.cs`
+- `E:\OneCiel\OneCiel.Core.Dynamics.JsonExtension\DynamicDictionaryJsonConverter.cs`
 
 **Examples:**
 - `E:\OneCiel\Examples\JsonPlaceholderModels.cs` (5 model classes)
@@ -336,4 +336,5 @@ MIT License - All code is open source and free to use.
 **Total Files**: 17
 **Total Lines**: ~5000+
 
-Enjoy using OneCiel.System.Dynamics! 🎊
+Enjoy using OneCiel.Core.Dynamics! 🎊
+

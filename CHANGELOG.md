@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-#### OneCiel.System.Dynamics (1.0.0)
+#### OneCiel.Core.Dynamics (1.0.0)
 - Initial release of core DynamicDictionary class
 - Dynamic object access with DynamicObject implementation
 - Nested property navigation using dot notation (e.g., "user.profile.name")
@@ -26,7 +26,7 @@ All notable changes to this project will be documented in this file.
 - Comprehensive XML documentation
 - Compatible with .NET Standard 2.1
 
-#### OneCiel.System.Dynamics.JsonExtension (1.0.0)
+#### OneCiel.Core.Dynamics.JsonExtension (1.0.0)
 - JSON string serialization with `ToJson()` extension method
 - JSON string deserialization with `FromJson()` static method
 - Asynchronous file operations: `ToJsonFileAsync()` and `FromJsonFileAsync()`
@@ -53,3 +53,4 @@ All notable changes to this project will be documented in this file.
 - [ ] Extended serialization format support
 - [ ] Advanced querying capabilities
 - [ ] Validation framework integration
+

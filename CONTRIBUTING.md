@@ -1,6 +1,6 @@
-# Contributing to OneCiel.System.Dynamics
+# Contributing to OneCiel.Core.Dynamics
 
-We appreciate your interest in contributing to OneCiel.System.Dynamics!
+We appreciate your interest in contributing to OneCiel.Core.Dynamics!
 
 ## Code of Conduct
 
@@ -69,3 +69,4 @@ Before publishing, verify:
 ## License
 
 By contributing, you agree that your contributions will be licensed under the MIT License.
+

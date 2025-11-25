@@ -2,7 +2,7 @@
 
 ## 🎯 What Was Accomplished
 
-The JSON functionality in `OneCiel.System.Dynamics.JsonExtension` has been completely refactored from simple extension methods to a clean, standardized interface-based architecture.
+The JSON functionality in `OneCiel.Core.Dynamics.JsonExtension` has been completely refactored from simple extension methods to a clean, standardized interface-based architecture.
 
 ## 📁 New Files Created
 
@@ -256,7 +256,7 @@ public class ValidatingDeserializer : IJsonDeserializer
 ## 📚 Documentation Structure
 
 ```
-E:\OneCiel\OneCiel.System.Dynamics.JsonExtension/
+E:\OneCiel\OneCiel.Core.Dynamics.JsonExtension/
 ├── DynamicDictionaryJsonExtensions.cs        # Extension methods
 ├── DynamicDictionaryJsonConverter.cs         # JsonConverter
 ├── JsonSerializationInterfaces.cs            # Interfaces & impls
@@ -401,3 +401,4 @@ For questions about the new design:
 **Extensibility**: ✅ **UNLIMITED**
 
 The DynamicDictionary JSON extension is now a professional-grade, production-ready library! 🎉
+
