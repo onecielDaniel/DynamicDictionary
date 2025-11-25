@@ -27,7 +27,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OneCiel.Core.Dynamics\OneCiel.Core.Dynamics.csproj" />
-    <ProjectReference Include="..\OneCiel.Core.Dynamics\OneCiel.Core.Dynamics.csproj" />
   </ItemGroup>
 
 </Project>
