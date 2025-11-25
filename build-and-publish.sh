@@ -1,5 +1,5 @@
 #!/bin/bash
-# OneCiel.System.Dynamics - NuGet Package Build and Publish Script
+# OneCiel.Core.Dynamics - NuGet Package Build and Publish Script
 # This script builds and publishes both packages to NuGet.org
 
 set -e
@@ -17,7 +17,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 echo -e "${CYAN}========================================${NC}"
-echo -e "${CYAN}OneCiel.System.Dynamics Package Builder${NC}"
+echo -e "${CYAN}OneCiel.Core.Dynamics Package Builder${NC}"
 echo -e "${CYAN}========================================${NC}"
 echo ""
 
@@ -26,8 +26,8 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "$SCRIPT_DIR"
 
 # Project paths
-CORE_PROJECT="$SCRIPT_DIR/OneCiel.System.Dynamics/OneCiel.System.Dynamics.csproj"
-JSON_EXTENSION_PROJECT="$SCRIPT_DIR/OneCiel.System.Dynamics.JsonExtension/OneCiel.System.Dynamics.JsonExtension.csproj"
+CORE_PROJECT="$SCRIPT_DIR/OneCiel.Core.Dynamics/OneCiel.Core.Dynamics.csproj"
+JSON_EXTENSION_PROJECT="$SCRIPT_DIR/OneCiel.Core.Dynamics.JsonExtension/OneCiel.Core.Dynamics.JsonExtension.csproj"
 PACKAGES_DIR="$SCRIPT_DIR/packages"
 
 # Validate projects exist
@@ -65,18 +65,18 @@ fi
 echo -e "${YELLOW}Step 4: Creating NuGet packages...${NC}"
 
 # Pack Core Library
-echo -e "${CYAN}  Packing OneCiel.System.Dynamics...${NC}"
+echo -e "${CYAN}  Packing OneCiel.Core.Dynamics...${NC}"
 dotnet pack "$CORE_PROJECT" --configuration "$CONFIGURATION" --no-build --output "$PACKAGES_DIR"
 
 # Pack JsonExtension
-echo -e "${CYAN}  Packing OneCiel.System.Dynamics.JsonExtension...${NC}"
+echo -e "${CYAN}  Packing OneCiel.Core.Dynamics.JsonExtension...${NC}"
 dotnet pack "$JSON_EXTENSION_PROJECT" --configuration "$CONFIGURATION" --no-build --output "$PACKAGES_DIR"
 
 echo -e "${GREEN}Packaging completed successfully!${NC}"
 
 # Find package files
-CORE_PACKAGE=$(ls -t "$PACKAGES_DIR"/OneCiel.System.Dynamics.*.nupkg 2>/dev/null | head -1)
-JSON_PACKAGE=$(ls -t "$PACKAGES_DIR"/OneCiel.System.Dynamics.JsonExtension.*.nupkg 2>/dev/null | head -1)
+CORE_PACKAGE=$(ls -t "$PACKAGES_DIR"/OneCiel.Core.Dynamics.*.nupkg 2>/dev/null | head -1)
+JSON_PACKAGE=$(ls -t "$PACKAGES_DIR"/OneCiel.Core.Dynamics.JsonExtension.*.nupkg 2>/dev/null | head -1)
 
 if [ -z "$CORE_PACKAGE" ]; then
     echo "Error: Core package file not found"
@@ -104,19 +104,19 @@ if [ "$SKIP_PUBLISH" != "true" ]; then
     echo -e "${YELLOW}Step 5: Publishing packages to NuGet.org...${NC}"
     
     # Publish Core Library
-    echo -e "${CYAN}  Publishing OneCiel.System.Dynamics...${NC}"
+    echo -e "${CYAN}  Publishing OneCiel.Core.Dynamics...${NC}"
     if dotnet nuget push "$CORE_PACKAGE" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate; then
-        echo -e "${GREEN}  ✓ OneCiel.System.Dynamics published successfully!${NC}"
+        echo -e "${GREEN}  ✓ OneCiel.Core.Dynamics published successfully!${NC}"
     else
-        echo -e "${YELLOW}  ⚠ Failed to publish OneCiel.System.Dynamics (may already exist)${NC}"
+        echo -e "${YELLOW}  ⚠ Failed to publish OneCiel.Core.Dynamics (may already exist)${NC}"
     fi
     
     # Publish JsonExtension
-    echo -e "${CYAN}  Publishing OneCiel.System.Dynamics.JsonExtension...${NC}"
+    echo -e "${CYAN}  Publishing OneCiel.Core.Dynamics.JsonExtension...${NC}"
     if dotnet nuget push "$JSON_PACKAGE" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate; then
-        echo -e "${GREEN}  ✓ OneCiel.System.Dynamics.JsonExtension published successfully!${NC}"
+        echo -e "${GREEN}  ✓ OneCiel.Core.Dynamics.JsonExtension published successfully!${NC}"
     else
-        echo -e "${YELLOW}  ⚠ Failed to publish OneCiel.System.Dynamics.JsonExtension (may already exist)${NC}"
+        echo -e "${YELLOW}  ⚠ Failed to publish OneCiel.Core.Dynamics.JsonExtension (may already exist)${NC}"
     fi
     
     echo ""
@@ -133,4 +133,5 @@ echo ""
 echo -e "${CYAN}========================================${NC}"
 echo -e "${GREEN}Build and Publish Complete!${NC}"
 echo -e "${CYAN}========================================${NC}"
+
 

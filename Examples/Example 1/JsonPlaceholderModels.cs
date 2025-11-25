@@ -1,5 +1,5 @@
 using System;
-using OneCiel.System.Dynamics;
+using OneCiel.Core.Dynamics;
 
 namespace Examples
 {

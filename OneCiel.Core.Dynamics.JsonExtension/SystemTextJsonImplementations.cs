@@ -2,7 +2,7 @@ using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace OneCiel.System.Dynamics
+namespace OneCiel.Core.Dynamics
 {
     /// <summary>
     /// Unified JSON serializer/deserializer using System.Text.Json.

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OneCiel.System.Dynamics
+namespace OneCiel.Core.Dynamics
 {
     /// <summary>
     /// Provides extension methods for converting objects to dictionaries.

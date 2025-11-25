@@ -1,4 +1,4 @@
-# OneCiel.System.Dynamics - NuGet Package Build and Publish Script
+# OneCiel.Core.Dynamics - NuGet Package Build and Publish Script
 # This script builds and publishes both packages to NuGet.org
 
 param(
@@ -18,7 +18,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "OneCiel.System.Dynamics Package Builder" -ForegroundColor Cyan
+Write-Host "OneCiel.Core.Dynamics Package Builder" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 
@@ -27,8 +27,8 @@ $SolutionDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 Set-Location $SolutionDir
 
 # Project paths
-$CoreProject = Join-Path $SolutionDir "OneCiel.System.Dynamics\OneCiel.System.Dynamics.csproj"
-$JsonExtensionProject = Join-Path $SolutionDir "OneCiel.System.Dynamics.JsonExtension\OneCiel.System.Dynamics.JsonExtension.csproj"
+$CoreProject = Join-Path $SolutionDir "OneCiel.Core.Dynamics\OneCiel.Core.Dynamics.csproj"
+$JsonExtensionProject = Join-Path $SolutionDir "OneCiel.Core.Dynamics.JsonExtension\OneCiel.Core.Dynamics.JsonExtension.csproj"
 
 # Validate projects exist
 if (-not (Test-Path $CoreProject)) {
@@ -74,19 +74,19 @@ if (-not $SkipBuild) {
 Write-Host "Step 4: Creating NuGet packages..." -ForegroundColor Yellow
 
 # Pack Core Library
-Write-Host "  Packing OneCiel.System.Dynamics..." -ForegroundColor Cyan
+Write-Host "  Packing OneCiel.Core.Dynamics..." -ForegroundColor Cyan
 $CorePackage = dotnet pack $CoreProject --configuration $Configuration --no-build --output "$SolutionDir\packages" 2>&1
 if ($LASTEXITCODE -ne 0) {
-    Write-Error "Failed to pack OneCiel.System.Dynamics"
+    Write-Error "Failed to pack OneCiel.Core.Dynamics"
     Write-Host $CorePackage
     exit 1
 }
 
 # Pack JsonExtension
-Write-Host "  Packing OneCiel.System.Dynamics.JsonExtension..." -ForegroundColor Cyan
+Write-Host "  Packing OneCiel.Core.Dynamics.JsonExtension..." -ForegroundColor Cyan
 $JsonPackage = dotnet pack $JsonExtensionProject --configuration $Configuration --no-build --output "$SolutionDir\packages" 2>&1
 if ($LASTEXITCODE -ne 0) {
-    Write-Error "Failed to pack OneCiel.System.Dynamics.JsonExtension"
+    Write-Error "Failed to pack OneCiel.Core.Dynamics.JsonExtension"
     Write-Host $JsonPackage
     exit 1
 }
@@ -94,8 +94,8 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "Packaging completed successfully!" -ForegroundColor Green
 
 # Find package files
-$CorePackageFile = Get-ChildItem -Path "$SolutionDir\packages" -Filter "OneCiel.System.Dynamics.*.nupkg" | Sort-Object LastWriteTime -Descending | Select-Object -First 1
-$JsonPackageFile = Get-ChildItem -Path "$SolutionDir\packages" -Filter "OneCiel.System.Dynamics.JsonExtension.*.nupkg" | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+$CorePackageFile = Get-ChildItem -Path "$SolutionDir\packages" -Filter "OneCiel.Core.Dynamics.*.nupkg" | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+$JsonPackageFile = Get-ChildItem -Path "$SolutionDir\packages" -Filter "OneCiel.Core.Dynamics.JsonExtension.*.nupkg" | Sort-Object LastWriteTime -Descending | Select-Object -First 1
 
 if (-not $CorePackageFile) {
     Write-Error "Core package file not found"
@@ -123,21 +123,21 @@ if (-not $SkipPublish) {
     Write-Host "Step 5: Publishing packages to NuGet.org..." -ForegroundColor Yellow
     
     # Publish Core Library
-    Write-Host "  Publishing OneCiel.System.Dynamics..." -ForegroundColor Cyan
+    Write-Host "  Publishing OneCiel.Core.Dynamics..." -ForegroundColor Cyan
     dotnet nuget push $CorePackageFile.FullName --api-key $NuGetApiKey --source https://api.nuget.org/v3/index.json --skip-duplicate
     if ($LASTEXITCODE -ne 0) {
-        Write-Warning "Failed to publish OneCiel.System.Dynamics (may already exist)"
+        Write-Warning "Failed to publish OneCiel.Core.Dynamics (may already exist)"
     } else {
-        Write-Host "  ✓ OneCiel.System.Dynamics published successfully!" -ForegroundColor Green
+        Write-Host "  ✓ OneCiel.Core.Dynamics published successfully!" -ForegroundColor Green
     }
     
     # Publish JsonExtension
-    Write-Host "  Publishing OneCiel.System.Dynamics.JsonExtension..." -ForegroundColor Cyan
+    Write-Host "  Publishing OneCiel.Core.Dynamics.JsonExtension..." -ForegroundColor Cyan
     dotnet nuget push $JsonPackageFile.FullName --api-key $NuGetApiKey --source https://api.nuget.org/v3/index.json --skip-duplicate
     if ($LASTEXITCODE -ne 0) {
-        Write-Warning "Failed to publish OneCiel.System.Dynamics.JsonExtension (may already exist)"
+        Write-Warning "Failed to publish OneCiel.Core.Dynamics.JsonExtension (may already exist)"
     } else {
-        Write-Host "  ✓ OneCiel.System.Dynamics.JsonExtension published successfully!" -ForegroundColor Green
+        Write-Host "  ✓ OneCiel.Core.Dynamics.JsonExtension published successfully!" -ForegroundColor Green
     }
     
     Write-Host ""
@@ -154,4 +154,5 @@ Write-Host ""
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "Build and Publish Complete!" -ForegroundColor Green
 Write-Host "========================================" -ForegroundColor Cyan
+
 

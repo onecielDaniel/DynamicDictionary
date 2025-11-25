@@ -111,7 +111,7 @@ var items = json.ToDynamicArray(options);
 ### 기본 사용
 
 ```csharp
-using OneCiel.System.Dynamics;
+using OneCiel.Core.Dynamics;
 
 // HTTP에서 JSON 가져오기
 var json = await httpClient.GetStringAsync("https://api.example.com/user");
@@ -518,7 +518,7 @@ var users = json.ToDynamicArray();
 ```
 
 ### 파일 위치
-- **Extension Methods**: `OneCiel.System.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs`
+- **Extension Methods**: `OneCiel.Core.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs`
 - **예제**: `Examples/RestApiUsageExample.cs`
 - **문서**: `MODERN_API_REFACTORING.md`
 
@@ -529,4 +529,5 @@ var users = json.ToDynamicArray();
 - [C# Extension Methods](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods)
 - [Fluent Interface Pattern](https://en.wikipedia.org/wiki/Fluent_interface)
 - [Method Chaining Best Practices](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/)
+
 

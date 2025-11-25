@@ -1,6 +1,6 @@
 # NuGet Package Build and Publish Guide
 
-This guide explains how to build and publish the OneCiel.System.Dynamics NuGet packages.
+This guide explains how to build and publish the OneCiel.Core.Dynamics NuGet packages.
 
 ## Prerequisites
 
@@ -164,13 +164,13 @@ dotnet build --configuration Release --no-restore
 mkdir -p packages
 
 # Pack Core Library
-dotnet pack OneCiel.System.Dynamics\OneCiel.System.Dynamics.csproj \
+dotnet pack OneCiel.Core.Dynamics\OneCiel.Core.Dynamics.csproj \
     --configuration Release \
     --no-build \
     --output packages
 
 # Pack JSON Extension
-dotnet pack OneCiel.System.Dynamics.JsonExtension\OneCiel.System.Dynamics.JsonExtension.csproj \
+dotnet pack OneCiel.Core.Dynamics.JsonExtension\OneCiel.Core.Dynamics.JsonExtension.csproj \
     --configuration Release \
     --no-build \
     --output packages
@@ -183,20 +183,20 @@ dotnet pack OneCiel.System.Dynamics.JsonExtension\OneCiel.System.Dynamics.JsonEx
 ls packages/*.nupkg
 
 # Inspect package contents (optional)
-dotnet nuget verify packages/OneCiel.System.Dynamics.*.nupkg
+dotnet nuget verify packages/OneCiel.Core.Dynamics.*.nupkg
 ```
 
 ### Step 6: Publish to NuGet.org
 
 ```bash
 # Publish Core Library
-dotnet nuget push packages/OneCiel.System.Dynamics.*.nupkg \
+dotnet nuget push packages/OneCiel.Core.Dynamics.*.nupkg \
     --api-key YOUR_API_KEY \
     --source https://api.nuget.org/v3/index.json \
     --skip-duplicate
 
 # Publish JSON Extension
-dotnet nuget push packages/OneCiel.System.Dynamics.JsonExtension.*.nupkg \
+dotnet nuget push packages/OneCiel.Core.Dynamics.JsonExtension.*.nupkg \
     --api-key YOUR_API_KEY \
     --source https://api.nuget.org/v3/index.json \
     --skip-duplicate
@@ -204,20 +204,20 @@ dotnet nuget push packages/OneCiel.System.Dynamics.JsonExtension.*.nupkg \
 
 ## Package Information
 
-### OneCiel.System.Dynamics
+### OneCiel.Core.Dynamics
 
-- **Package ID**: `OneCiel.System.Dynamics`
+- **Package ID**: `OneCiel.Core.Dynamics`
 - **Version**: 1.0.0
 - **Target Framework**: .NET Standard 2.1
 - **Dependencies**: None
 
-### OneCiel.System.Dynamics.JsonExtension
+### OneCiel.Core.Dynamics.JsonExtension
 
-- **Package ID**: `OneCiel.System.Dynamics.JsonExtension`
+- **Package ID**: `OneCiel.Core.Dynamics.JsonExtension`
 - **Version**: 1.0.0
 - **Target Frameworks**: .NET 8.0, .NET 9.0
 - **Dependencies**: 
-  - `OneCiel.System.Dynamics` (>= 1.0.0)
+  - `OneCiel.Core.Dynamics` (>= 1.0.0)
   - `System.Text.Json` (included in .NET 8.0+)
 
 ## NuGet Configuration
@@ -298,3 +298,4 @@ If you get an error that the package already exists:
 - [NuGet Package Creation](https://docs.microsoft.com/en-us/nuget/create-packages/creating-a-package-dotnet-cli)
 - [NuGet Publishing](https://docs.microsoft.com/en-us/nuget/nuget-org/publish-a-package)
 - [NuGet API Keys](https://docs.microsoft.com/en-us/nuget/nuget-org/individual-accounts#api-keys)
+

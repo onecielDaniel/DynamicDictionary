@@ -1,11 +1,11 @@
-# OneCiel.System.Dynamics
+# OneCiel.Core.Dynamics
 
 A flexible and dynamic dictionary implementation for .NET Standard 2.1 that provides convenient access to loosely-typed data structures with extensible type resolution.
 
 ## Installation
 
 ```bash
-dotnet add package OneCiel.System.Dynamics
+dotnet add package OneCiel.Core.Dynamics
 ```
 
 ## Features
@@ -52,7 +52,7 @@ Resolvers are checked in the order they are registered, with the most recently r
 ### Creating a Dictionary
 
 ```csharp
-using OneCiel.System.Dynamics;
+using OneCiel.Core.Dynamics;
 
 // Empty dictionary
 var dict = new DynamicDictionary();

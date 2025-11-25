@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\OneCiel.System.Dynamics.JsonExtension\OneCiel.System.Dynamics.JsonExtension.csproj" />
-    <ProjectReference Include="..\..\OneCiel.System.Dynamics\OneCiel.System.Dynamics.csproj" />
+    <ProjectReference Include="..\..\OneCiel.Core.Dynamics.JsonExtension\OneCiel.Core.Dynamics.JsonExtension.csproj" />
+    <ProjectReference Include="..\..\OneCiel.Core.Dynamics\OneCiel.Core.Dynamics.csproj" />
   </ItemGroup>
 
 </Project>

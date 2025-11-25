@@ -1,7 +1,7 @@
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using OneCiel.System.Dynamics;
+using OneCiel.Core.Dynamics;
 
 namespace Examples
 {

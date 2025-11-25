@@ -181,9 +181,9 @@ Endpoints used in examples:
 ```
 E:\OneCiel/
 ├── README.md                          # Main project overview
-├── OneCiel.System.Dynamics/
+├── OneCiel.Core.Dynamics/
 │   └── README.md                      # Core library docs
-├── OneCiel.System.Dynamics.JsonExtension/
+├── OneCiel.Core.Dynamics.JsonExtension/
 │   └── README.md                      # JSON extension docs
 └── Examples/
     ├── README.md                      # Detailed guide & patterns
@@ -265,7 +265,7 @@ var doc = new DynamicDictionary(dbDocument.ToBsonDocument().ToJson());
 
 - .NET 8.0 or later
 - Internet connection (for JSONPlaceholder API)
-- Projects: OneCiel.System.Dynamics and JsonExtension
+- Projects: OneCiel.Core.Dynamics and JsonExtension
 
 ## 📄 License
 

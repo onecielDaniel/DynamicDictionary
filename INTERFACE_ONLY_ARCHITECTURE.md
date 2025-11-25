@@ -336,7 +336,7 @@ Method 3 (Options):   ID = 1
 
 ## 📂 변경된 파일
 
-1. ✅ **OneCiel.System.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs**
+1. ✅ **OneCiel.Core.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs**
    - ❌ 모든 `ToDynamicDictionary` extension methods 제거
    - ❌ 모든 `ToDynamicArray` extension methods 제거
    - ❌ `CreateFromJson` / `CreateFromJsonArray` 제거
@@ -377,10 +377,11 @@ dynamic data = DynamicDictionary.Create(json, deserializer);
 ---
 
 **파일 위치**
-- Interface: `OneCiel.System.Dynamics/JsonSerializationInterfaces.cs`
-- Implementation: `OneCiel.System.Dynamics.JsonExtension/SystemTextJsonImplementations.cs`
-- Factory: `OneCiel.System.Dynamics/DynamicDictionary.cs`
-- Helpers: `OneCiel.System.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs`
+- Interface: `OneCiel.Core.Dynamics/JsonSerializationInterfaces.cs`
+- Implementation: `OneCiel.Core.Dynamics.JsonExtension/SystemTextJsonImplementations.cs`
+- Factory: `OneCiel.Core.Dynamics/DynamicDictionary.cs`
+- Helpers: `OneCiel.Core.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs`
 - Examples: `Examples/RestApiUsageExample.cs`
 - Documentation: `INTERFACE_ONLY_ARCHITECTURE.md`
+
 

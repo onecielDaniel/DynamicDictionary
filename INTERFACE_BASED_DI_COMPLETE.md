@@ -247,8 +247,8 @@ Build succeeded.
 
 ### NuGet 패키지
 ```
-✅ OneCiel.System.Dynamics.1.0.0.nupkg
-✅ OneCiel.System.Dynamics.JsonExtension.1.0.0.nupkg
+✅ OneCiel.Core.Dynamics.1.0.0.nupkg
+✅ OneCiel.Core.Dynamics.JsonExtension.1.0.0.nupkg
 ```
 
 ### 예제 실행
@@ -266,15 +266,15 @@ Method 3 (Options):   ID = 1
 
 ## 📂 변경된 파일
 
-1. ✅ **OneCiel.System.Dynamics.JsonExtension/SystemTextJsonImplementations.cs**
+1. ✅ **OneCiel.Core.Dynamics.JsonExtension/SystemTextJsonImplementations.cs**
    - `SystemTextJsonDeserializer` 클래스 추가
    - `IJsonDeserializer` 구현
 
-2. ✅ **OneCiel.System.Dynamics/DynamicDictionary.cs**
+2. ✅ **OneCiel.Core.Dynamics/DynamicDictionary.cs**
    - `Create(string, IJsonDeserializer)` 추가
    - `CreateArray(string, IJsonDeserializer)` 추가
 
-3. ✅ **OneCiel.System.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs**
+3. ✅ **OneCiel.Core.Dynamics.JsonExtension/DynamicDictionaryJsonExtensions.cs**
    - `_defaultDeserializer` 필드 추가
    - `SetJsonDeserializer()` 메서드 추가
    - 모든 extension method를 인터페이스 기반으로 리팩토링
@@ -345,13 +345,13 @@ public class NewtonsoftDeserializer : IJsonDeserializer { ... }
 
 ### 설치
 ```bash
-dotnet add package OneCiel.System.Dynamics
-dotnet add package OneCiel.System.Dynamics.JsonExtension
+dotnet add package OneCiel.Core.Dynamics
+dotnet add package OneCiel.Core.Dynamics.JsonExtension
 ```
 
 ### 기본 사용
 ```csharp
-using OneCiel.System.Dynamics;
+using OneCiel.Core.Dynamics;
 
 // 방법 1: Extension method (간단)
 var data = json.ToDynamicDictionary();
@@ -398,4 +398,5 @@ public static void SetJsonDeserializer(IJsonDeserializer deserializer)
 **테스트 상태**: ✅ 모든 예제 통과  
 **패키지 상태**: ✅ NuGet 패키지 생성 완료  
 **문서 상태**: ✅ 완전한 문서화 완료  
+
 

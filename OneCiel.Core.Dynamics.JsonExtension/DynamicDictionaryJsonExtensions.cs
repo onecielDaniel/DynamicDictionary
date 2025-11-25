@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace OneCiel.System.Dynamics
+namespace OneCiel.Core.Dynamics
 {
     /// <summary>
     /// JSON extension methods for DynamicDictionary using standardized interfaces.

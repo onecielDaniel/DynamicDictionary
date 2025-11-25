@@ -9,7 +9,7 @@ using System.Text;
 // which inherently work with runtime type information rather than compile-time null checking.
 #nullable disable
 
-namespace OneCiel.System.Dynamics
+namespace OneCiel.Core.Dynamics
 {
  
 
@@ -175,7 +175,7 @@ namespace OneCiel.System.Dynamics
             {
                 throw new InvalidOperationException(
                     "No default JSON serializer has been set. " +
-                    "Please call DynamicDictionary.SetDefaultSerializer() or reference OneCiel.System.Dynamics.JsonExtension which sets it automatically, " +
+                    "Please call DynamicDictionary.SetDefaultSerializer() or reference OneCiel.Core.Dynamics.JsonExtension which sets it automatically, " +
                     "or use the overload that accepts an IDynamicsJsonSerializer parameter.");
             }
             return _defaultSerializer;

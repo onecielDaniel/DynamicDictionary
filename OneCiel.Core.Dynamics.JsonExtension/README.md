@@ -1,16 +1,16 @@
-# OneCiel.System.Dynamics.JsonExtension
+# OneCiel.Core.Dynamics.JsonExtension
 
-JSON serialization and deserialization extensions for OneCiel.System.Dynamics. Provides seamless System.Text.Json integration with DynamicDictionary for .NET 8 and .NET 9, including automatic JsonElement type conversion via the `JsonElementValueResolver`.
+JSON serialization and deserialization extensions for OneCiel.Core.Dynamics. Provides seamless System.Text.Json integration with DynamicDictionary for .NET 8 and .NET 9, including automatic JsonElement type conversion via the `JsonElementValueResolver`.
 
 ## Installation
 
 ```bash
-dotnet add package OneCiel.System.Dynamics.JsonExtension
+dotnet add package OneCiel.Core.Dynamics.JsonExtension
 ```
 
 ## Requirements
 
-- OneCiel.System.Dynamics (required dependency)
+- OneCiel.Core.Dynamics (required dependency)
 - .NET 8.0 or later
 - .NET 9.0 or later
 
@@ -32,7 +32,7 @@ dotnet add package OneCiel.System.Dynamics.JsonExtension
 JSON support is automatically initialized on first use. No manual setup required:
 
 ```csharp
-using OneCiel.System.Dynamics;
+using OneCiel.Core.Dynamics;
 
 // Modern extension method - just call .ToDynamicDictionary() on any JSON string!
 var dict = @"{ ""name"": ""John"" }".ToDynamicDictionary();
@@ -54,7 +54,7 @@ var users = jsonArrayString.ToDynamicArray();
 ### JSON String Operations
 
 ```csharp
-using OneCiel.System.Dynamics;
+using OneCiel.Core.Dynamics;
 
 // Create a DynamicDictionary
 var dict = new DynamicDictionary
